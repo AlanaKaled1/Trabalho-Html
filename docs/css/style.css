@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
 .start-screen{
@@ -50,11 +51,7 @@
     text-shadow: 2px 2px 2px black;
 }
 
-.bottom-game{
-    width: 100%;
-    height: 130px;
-    background-color: rgb(31, 152, 31);
-}
+
 
 .game-board{
     width: 100%;
