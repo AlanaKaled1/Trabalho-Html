@@ -1,5 +1,7 @@
 let mario = document.querySelector('.mario');
 let pipe = document.querySelector('.pipe');
+let difficulty = "easy"; // padrão
+let pipeSpeed = 1500; // velocidade padrão do fácil
 let gameBoard = document.querySelector('.game-board');
 
 let startBtn = document.getElementById("btnStart");
@@ -15,6 +17,17 @@ let score = 0;
 let gameOverScreen = document.querySelector(".game-over-screen");
 let restartBtn = document.getElementById("restartBtn");
 
+document.getElementById("difficulty").addEventListener("change", function () {
+    difficulty = this.value;
+
+    if (difficulty === "easy") pipeSpeed = 1800;
+    if (difficulty === "medium") pipeSpeed = 1200;
+    if (difficulty === "hard") pipeSpeed = 800;
+
+    // Atualiza animação do pipe ANTES do jogo começar
+    pipe.style.animationDuration = `${pipeSpeed}ms`;
+});
+
 
 function jump() {
     mario.classList.add('jump');
@@ -26,6 +39,8 @@ function jump() {
 
 function startGame() {
     startScreen.style.display = "none";
+    // Ajusta a velocidade do pipe de acordo com a dificuldade
+    pipe.style.animationDuration = `${pipeSpeed}ms`;
 
     score = 0;
     scoreElement.innerText = score;
